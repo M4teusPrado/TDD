@@ -75,6 +75,17 @@ public class JogoTeste {
 		
 		assertEquals(0.0, jogo.getResultados().get(0).getMetrica(), 0.00001);
 	}
+
 	
+	@Test
+	public void naoDeveAceitarValoresMaioresMil() {
+		
+		Jogo jogo = new Jogo("Quebra cabeça");
+		Participante mateus = new Participante("Mateus");
+		
+		jogo.anota(new Resultado(mateus, 2000));
+		
+		assertEquals(1000, jogo.getResultados().get(0).getMetrica(), 0.00001);
+	}
 
 }

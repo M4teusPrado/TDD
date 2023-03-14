@@ -20,7 +20,11 @@ public class Resultado {
 	}
 
 	public void setMetrica(double metrica) {
-		this.metrica = metrica >= 0 ? metrica : 0;
+		this.metrica = metrica < 0 ? 0 : validarMetricaMaiorZero(metrica);
+	}
+	
+	private double validarMetricaMaiorZero(double metrica) {
+		return metrica > 1000 ? 1000 : metrica;
 	}
 
 }
