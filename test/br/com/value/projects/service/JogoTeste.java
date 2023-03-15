@@ -111,4 +111,20 @@ public class JogoTeste {
 		assertEquals("Rodrigo Abdall", jogo.getResultados().get(0).getParticipante().getNome());
 	}
 
+
+	@Test
+	public void deveCalcularMediaDosResultados() {
+		
+		Jogo jogo = new Jogo("Boliche");
+		
+		jogo.anota(new Resultado(new Participante("Rodrigo"), 1000));
+		jogo.anota(new Resultado(new Participante("Fernando"), 500));
+
+		double media = jogo.media();
+
+		assertEquals(750, media, 0.000001);
+		
+
+	}
+
 }

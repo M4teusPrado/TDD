@@ -34,4 +34,23 @@ public class Jogo {
 		return Collections.unmodifiableList(resultados);
 	}
 
+	public double media() {
+		if(resultados.size() == 0){
+			// Em caso de jogos sem resultados, média retorna 0.
+			return 0.0;
+		}
+		else{
+			// Cálculo da média dos resultados dos jogos
+
+			double soma = 0;
+
+			for (Resultado resultado : resultados) {
+				soma += resultado.getMetrica();
+			}
+
+			return soma/resultados.size();
+		}
+	}
+
+
 }
