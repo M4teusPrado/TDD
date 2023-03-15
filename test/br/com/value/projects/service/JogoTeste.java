@@ -88,4 +88,16 @@ public class JogoTeste {
 		assertEquals(1000, jogo.getResultados().get(0).getMetrica(), 0.00001);
 	}
 
+	@Test
+	public void naoDeveAceitarValoresNaoInteiros() {
+		
+		Jogo jogo = new Jogo("Quebra cabeça");
+		Participante mateus = new Participante("Mateus");
+		
+		jogo.anota(new Resultado(leonardo, 650.50));
+		
+		assertEquals(1000, jogo.getResultados().get(0).getMetrica(), 0.00001);
+	}
+
+
 }
