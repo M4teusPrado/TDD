@@ -89,6 +89,18 @@ public class JogoTeste {
 	}
 
 	@Test
+	public void naoDeveAceitarValoresNaoInteiros() {
+		
+		Jogo jogo = new Jogo("Quebra cabeça");
+		Participante leonardo = new Participante("Leonardo");
+		
+		jogo.anota(new Resultado(leonardo, 650.50));
+		
+		assertEquals(1000, jogo.getResultados().get(0).getMetrica(), 0.00001);
+	}
+
+
+	@Test
 	public void naoDeveTerNomesMaioresQueQuinzeCaracteres() {
 		
 		Jogo jogo = new Jogo("Futebol de Botao");
