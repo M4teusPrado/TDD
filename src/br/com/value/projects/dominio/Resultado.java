@@ -27,4 +27,8 @@ public class Resultado {
 		return metrica > 1000 ? 1000 : metrica;
 	}
 
+	private double validarMetricaInteiro(double metrica) {
+		return metrica % 1 == 0 ? metrica : "O valor não é inteiro";
+	}
+
 }
