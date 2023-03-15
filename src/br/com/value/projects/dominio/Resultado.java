@@ -1,5 +1,7 @@
 package br.com.value.projects.dominio;
 
+import javax.swing.text.Element;
+
 public class Resultado {
 
 	private Participante participante;
@@ -20,19 +22,23 @@ public class Resultado {
 	}
 
 	public void setMetrica(double metrica) {
-		this.metrica = metrica < 0 ? 0 : validarMetricaMaiorZero(metrica);
+		this.metrica = metrica < 0 ? 0 : validarMetrica(metrica);
 	}
 
 	public void setParticipante(Participante participante) {
 		this.participante = participante;
 	}
 	
-	private double validarMetricaMaiorZero(double metrica) {
-		return metrica > 1000 ? 1000 : metrica;
-	}
-
-	private double validarMetricaInteiro(double metrica) {
-		return metrica % 1 == 0 ? metrica : 1.1;
+	private double validarMetrica(double metrica) {
+		if (metrica > 1000)
+		{
+			metrica = 1000;
+		}
+		else if (metrica % 1 != 0){
+			metrica = 0;
+		}
+		
+		return metrica;
 	}
 
 }
