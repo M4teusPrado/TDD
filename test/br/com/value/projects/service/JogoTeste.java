@@ -88,4 +88,15 @@ public class JogoTeste {
 		assertEquals(1000, jogo.getResultados().get(0).getMetrica(), 0.00001);
 	}
 
+	@Test
+	public void naoDeveTerNomesMaioresQueQuinzeCaracteres() {
+		
+		Jogo jogo = new Jogo("Futebol de Botao");
+		Participante rodrigo = new Participante("Rodrigo Abdalla Ramos da Silva");
+		
+		jogo.anota(new Resultado(rodrigo, 1000));
+		
+		assertEquals("Rodrigo Abdall", jogo.getResultados().get(0).getParticipante().getNome());
+	}
+
 }

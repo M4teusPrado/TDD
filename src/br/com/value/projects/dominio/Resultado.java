@@ -6,7 +6,7 @@ public class Resultado {
 	private double metrica;
 
 	public Resultado(Participante participante, double metrica) {
-		this.participante = participante;
+		setParticipante(participante);
 		setMetrica(metrica);
 
 	}
@@ -21,6 +21,10 @@ public class Resultado {
 
 	public void setMetrica(double metrica) {
 		this.metrica = metrica < 0 ? 0 : validarMetricaMaiorZero(metrica);
+	}
+
+	public void setParticipante(Participante participante) {
+		this.participante = participante;
 	}
 	
 	private double validarMetricaMaiorZero(double metrica) {

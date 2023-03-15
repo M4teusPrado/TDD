@@ -6,12 +6,13 @@ public class Participante {
 	private String nome;
 
 	public Participante(String nome) {
-		this(0, nome);
+		this.id = 0;
+		setNome(nome);
 	}
 
 	public Participante(int id, String nome) {
 		this.id = id;
-		this.nome = nome;
+		setNome(nome);
 	}
 
 	public int getId() {
@@ -21,6 +22,11 @@ public class Participante {
 	public String getNome() {
 		return nome;
 	}
+
+	public void setNome(String nome) {
+		this.nome = nome.length() > 15 ? nome.substring(0, 14) : nome;
+	}
+
 
 	@Override
 	public boolean equals(Object obj) {
